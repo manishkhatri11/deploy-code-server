@@ -21,6 +21,18 @@ COPY deploy-container/rclone-tasks.json /tmp/rclone-tasks.json
 # Fix permissions for code-server
 RUN sudo chown -R coder:coder /home/coder/.local
 
+FROM node:16-alpine
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+CMD [ "node", "index.js" ]
+
 # You can add custom software and dependencies for your environment below
 # -----------
 
