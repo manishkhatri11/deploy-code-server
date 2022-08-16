@@ -10,6 +10,12 @@
     "cloud-development",
     "heroku-api"
   ],
+"image": "heroku/nodejs",
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
   "env": {
     "GIT_REPO": {
       "description": "URL of a git repo to clone (optional)",
